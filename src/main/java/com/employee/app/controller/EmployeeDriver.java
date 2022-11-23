@@ -1,5 +1,8 @@
 package com.employee.app.controller;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import com.employee.app.entity.Employee;
 import com.employee.app.exception.EmployeeException;
 import com.employee.app.service.EmployeeService;
@@ -9,7 +12,12 @@ public class EmployeeDriver {
 
 	public static void main(String[] args) {
 
-	EmployeeService employeeService = new EmployeeServiceImpl();
+		// ctrl + space
+		
+		ApplicationContext context = new AnnotationConfigApplicationContext(EmployeeAppConfiguration.class);
+	//EmployeeService employeeService = new EmployeeServiceImpl();
+		
+		EmployeeService employeeService =(EmployeeServiceImpl) context.getBean("employeeService");
 		
 	try {
 		Employee emp = employeeService.registerEmployee(new Employee(1, "emp 1", 100.0));

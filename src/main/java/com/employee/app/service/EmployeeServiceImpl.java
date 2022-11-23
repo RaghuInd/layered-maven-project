@@ -2,14 +2,23 @@ package com.employee.app.service;
 
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import com.employee.app.dao.EmployeeDao;
 import com.employee.app.dao.EmployeeDaoImpl;
 import com.employee.app.entity.Employee;
 import com.employee.app.exception.EmployeeException;
 
+//@Component
+@Service("employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 
-	private EmployeeDao employeeRespository = new EmployeeDaoImpl();
+	@Autowired
+	//@Qualifier("employeeDaoImpl")
+	private EmployeeDao employeeRespository;// = new EmployeeDaoImpl();
 
 	@Override
 	public Employee registerEmployee(Employee employee) throws EmployeeException {

@@ -9,9 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import com.employee.app.entity.Employee;
 
+
 // class to implement to data access logic with PostGres 
+//@Component
+@Repository
 public class EmployeeDaoImpl implements EmployeeDao {
 
 	private Connection connection;
